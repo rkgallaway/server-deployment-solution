@@ -6,6 +6,7 @@ const app = express();
 
 //allow frontend to access data from backend with CORS
 const cors = require('cors');
+const { response } = require('express');
 app.use(cors());
 
 
@@ -13,6 +14,10 @@ app.use(cors());
 require('dotenv').config();
 
 const PORT = process.env.PORT;
+
+app.get('/', (req, res) => {
+  res.send('Hurray for servers!');
+});
 
 app.get('/banana', (req, res) => {
   res.send('It\'s bananas.  B. A. N. A. N. A. S.');
